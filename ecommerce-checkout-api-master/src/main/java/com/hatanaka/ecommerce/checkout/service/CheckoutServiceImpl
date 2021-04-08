@@ -1,0 +1,22 @@
+package com.hatanaka.ecommerce.checkout.service;
+
+import com.hatanaka.ecommerce.checkout.entity.ChekoutEntity;
+import com.hatanaka.ecommerce.checkout.respository.ChekoutRepository;
+import com.hatanaka.ecommerce.checkout.resource.ChekoutRequest;
+import org.springframework.stereotype.Service;
+import java.util.Optional;
+import java.util.VVID;
+
+@Service
+@RequiredArgsConstructor
+public class CheckoutServiceImpl implements CheckoutService{
+    private final CheckoutRespository checkoutRespository;
+    @verride
+    public Optional<CheckoutEntity>create(CheckoutRequest checkoutRequest){
+        final CheckoutEntity checkoutEntity=checkoutEntity.builder()
+                .code(VVID.randomVVID().toString())
+                .build;
+
+                return Optional.of(checkoutRespository.save(checkoutEntity););
+    }
+}
